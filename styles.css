@@ -1,0 +1,226 @@
+/* Kenetik Trainer Certification — Global Styles */
+
+:root {
+  /* Default theme: Electric (high-performance athletic) */
+  --bg: #0A0B0F;
+  --bg-elev: #11131A;
+  --bg-card: #161922;
+  --line: #232734;
+  --line-strong: #2E3344;
+  --ink: #F5F7FA;
+  --ink-dim: #A8AEBE;
+  --ink-muted: #6B7185;
+  --accent: #00E0FF;
+  --accent-deep: #00B8D4;
+  --accent-soft: rgba(0, 224, 255, 0.12);
+  --success: #5BFF9F;
+  --warn: #FFB347;
+  --error: #FF5470;
+  --radius: 6px;
+  --radius-lg: 14px;
+  --shadow-glow: 0 0 0 1px rgba(0, 224, 255, 0.4), 0 8px 40px rgba(0, 224, 255, 0.18);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+#root { min-height: 100vh; }
+
+/* Type system — bold/sporty, geometric */
+.t-display {
+  font-family: 'Archivo', 'Inter', sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+.t-h1 { font-size: clamp(48px, 7vw, 88px); }
+.t-h2 { font-size: clamp(28px, 4vw, 48px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; font-family: 'Archivo', sans-serif; text-transform: uppercase;}
+.t-h3 { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; font-family: 'Archivo', sans-serif;}
+.t-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
+.t-mono { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.05em; }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 14px 24px; min-height: 48px;
+  font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 14px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  border: none; border-radius: var(--radius); cursor: pointer;
+  transition: transform 0.12s ease, background 0.12s ease, box-shadow 0.12s ease;
+  text-decoration: none;
+}
+.btn-primary { background: var(--accent); color: #000; }
+.btn-primary:hover { background: var(--accent-deep); transform: translateY(-1px); box-shadow: var(--shadow-glow); }
+.btn-primary:disabled { background: var(--line); color: var(--ink-muted); cursor: not-allowed; transform: none; box-shadow: none; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--line-strong); }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+.btn-lg { padding: 18px 32px; font-size: 15px; min-height: 56px; }
+
+/* Inputs */
+.field { display: flex; flex-direction: column; gap: 8px; }
+.field label {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-dim);
+}
+.field input, .field select {
+  background: var(--bg-elev); color: var(--ink);
+  border: 1px solid var(--line-strong); border-radius: var(--radius);
+  padding: 14px 16px; font-size: 15px; font-family: inherit;
+  transition: border-color 0.15s ease;
+}
+.field input:focus, .field select:focus { outline: none; border-color: var(--accent); }
+
+/* Card */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+}
+
+/* Divider */
+.divider { height: 1px; background: var(--line); width: 100%; }
+
+/* Container */
+.container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+.container-narrow { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+/* Logo wordmark */
+.logo {
+  display: inline-block;
+  height: 18px;
+}
+.logo svg { height: 100%; width: auto; fill: currentColor; }
+
+/* Top nav */
+.topnav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(10, 11, 15, 0.85);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+.topnav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 24px; max-width: 1280px; margin: 0 auto;
+}
+.topnav-brand { display: flex; align-items: center; gap: 14px; color: var(--ink); }
+.topnav-brand .badge {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600;
+  padding: 4px 8px; border: 1px solid var(--accent);
+  color: var(--accent); border-radius: 3px; letter-spacing: 0.1em;
+}
+.topnav-user {
+  display: flex; align-items: center; gap: 14px;
+  font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-dim);
+}
+.topnav-user .avatar {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--accent); color: #000;
+  font-family: 'Archivo', sans-serif; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px;
+}
+
+/* Progress meter (linear) */
+.progress {
+  position: relative; height: 6px; background: var(--line);
+  border-radius: 3px; overflow: hidden;
+}
+.progress > span {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  background: var(--accent);
+  transition: width 0.4s cubic-bezier(.4,.2,.2,1);
+}
+
+/* Chips */
+.chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 10px; border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  border: 1px solid var(--line-strong); color: var(--ink-dim);
+}
+.chip-success { color: var(--success); border-color: rgba(91, 255, 159, 0.4); }
+.chip-active { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
+.chip-locked { color: var(--ink-muted); border-color: var(--line); }
+
+/* Lesson body content */
+.lesson-body { font-size: 17px; line-height: 1.7; color: var(--ink-dim); }
+.lesson-body h2 {
+  font-family: 'Archivo', sans-serif; font-weight: 800;
+  font-size: 28px; letter-spacing: -0.02em; line-height: 1.1;
+  color: var(--ink); margin: 36px 0 16px;
+  text-transform: uppercase;
+}
+.lesson-body h2:first-child { margin-top: 0; }
+.lesson-body p { margin-bottom: 18px; }
+.lesson-body ul { list-style: none; margin: 18px 0; }
+.lesson-body ul li {
+  position: relative; padding-left: 28px; margin-bottom: 12px;
+}
+.lesson-body ul li::before {
+  content: ''; position: absolute; left: 0; top: 12px;
+  width: 12px; height: 2px; background: var(--accent);
+}
+
+.callout {
+  background: linear-gradient(180deg, rgba(0, 224, 255, 0.08), transparent);
+  border: 1px solid var(--line-strong); border-left: 3px solid var(--accent);
+  padding: 20px 24px; border-radius: var(--radius);
+  margin: 24px 0;
+}
+.callout-label {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 8px;
+}
+.callout-text { color: var(--ink); font-size: 16px; line-height: 1.6; }
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in { animation: fadeInUp 0.45s cubic-bezier(.4,.2,.2,1) both; }
+
+@keyframes scanline {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+.scanline {
+  position: absolute; inset: 0; overflow: hidden; pointer-events: none;
+}
+.scanline::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(0,224,255,0.18), transparent);
+  animation: scanline 2.4s linear infinite;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* Utility grid */
+.grid { display: grid; gap: 20px; }
+.grid-2 { grid-template-columns: 1fr 1fr; }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 800px) {
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+}
+
+/* Print (for certificate) */
+@media print {
+  body { background: white; }
+  .no-print { display: none !important; }
+}
